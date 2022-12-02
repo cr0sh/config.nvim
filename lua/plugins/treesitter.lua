@@ -38,3 +38,5 @@ require("nvim-treesitter.configs").setup({
         max_file_lines = nil,
     }
 })
+
+vim.keymap.set("n", "<leader>rr", "<Cmd>TSDisable rainbow|TSEnable rainbow<CR>")
