@@ -59,6 +59,7 @@ require "plugins.trouble"
 require "plugins.lsp.lsp"
 require "plugins.lsp.mason"
 require "plugins.lsp.rust"
+require "plugins.lsp.zig"
 
 
 -- Colorscheme
