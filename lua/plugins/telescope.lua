@@ -41,6 +41,8 @@ vim.keymap.set("n", [[<C-\><C-\>]], ":Telescope commands<CR>", { noremap = true,
 vim.keymap.set("t", [[<C-\><C-\>]], "<C-\\><C-n>:Telescope commands<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", [[<C-\>s]], ":Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", [[<C-\>s]], ":Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", [[<C-\>f]], ":Telescope find_files<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", [[<C-\>f]], ":Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", [[<C-]>]], "<Esc>:Telescope notify<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", [[<C-]>]], ":Telescope notify<CR>", { noremap = true, silent = true })
 
