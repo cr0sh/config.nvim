@@ -9,3 +9,6 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
     }
 end
+
+-- We use Trouble to show diagnostics, so disable included diagnostics
+vim.g.zig_fmt_parse_errors = 0
