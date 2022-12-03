@@ -43,7 +43,7 @@ cmp.setup({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
         -- https://github.com/L3MON4D3/LuaSnip/issues/532#issuecomment-1217118043
-        ["<TAB>"] = cmp.mapping(
+        ["<Tab>"] = cmp.mapping(
             function(fallback)
                 if luasnip.expand_or_locally_jumpable() then
                     luasnip.expand_or_jump()
