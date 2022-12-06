@@ -53,7 +53,7 @@ require "plugins.lualine"
 require "plugins.onedark"
 require "plugins.treesitter"
 require "plugins.floaterm"
--- require "plugins.autopairs"
+require "plugins.autopairs"
 require "plugins.trouble"
 
 require "plugins.lsp.lsp"
