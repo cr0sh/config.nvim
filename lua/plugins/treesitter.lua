@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup({
         "go",
         "gomod",
         "gowork",
+        "zig",
     },
     -- auto install above language parsers
     auto_install = true,
