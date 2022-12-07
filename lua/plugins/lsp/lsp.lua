@@ -95,9 +95,3 @@ lsp_on_attach = function(client, bufnr)
     }
     require("lsp_signature").on_attach(cfg, bufnr) -- Note: add in lsp client on-attach
 end
-
-lspconfig["rust_analyzer"].setup({
-    capabilities = capabilities,
-    on_init = on_init,
-    on_attach = lsp_on_attach,
-})
