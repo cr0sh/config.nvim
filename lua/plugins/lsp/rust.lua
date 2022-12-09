@@ -44,9 +44,11 @@ rust_tools.setup({
                 -- enable clippy on save
                 checkOnSave = {
                     command = "clippy",
+                    extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
                 },
-                cargo = {},
-                extraEnv = {},
+                cargo = {
+                    extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
+                },
             },
         },
     }
