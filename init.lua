@@ -20,6 +20,7 @@ vim.opt.scrolloff = 4
 vim.opt.encoding = "utf-8"
 vim.opt.hidden = true
 vim.opt.updatetime = 300
+vim.opt.colorcolumn = {121}
 vim.wo.signcolumn = "yes"
 vim.cmd [[language en_US]]
 
@@ -63,5 +64,7 @@ require "plugins.lsp.zig"
 require "plugins.lsp.typescript"
 
 
--- Colorscheme
+-- Filetypes
+
+require "filetypes.markdown"
 
