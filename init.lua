@@ -46,7 +46,7 @@ vim.opt.ttimeoutlen = 10
 require "plugins.util"
 require "plugins.notify"
 
-require "plugins.auto_session"
+-- require "plugins.auto_session"
 require "plugins.telescope"
 require "plugins.nvim_tree"
 require "plugins.nvim_cmp"

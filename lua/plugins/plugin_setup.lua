@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
     use "nvim-tree/nvim-tree.lua"
     use "nvim-lualine/lualine.nvim"
 
-    use "rmagatti/auto-session"
+    -- use "rmagatti/auto-session"
 
     use "jose-elias-alvarez/null-ls.nvim"
     use "williamboman/mason.nvim"
