@@ -62,6 +62,7 @@ require "plugins.lsp.mason"
 require "plugins.lsp.rust"
 require "plugins.lsp.zig"
 require "plugins.lsp.typescript"
+require "plugins.lsp.lua"
 
 
 -- Filetypes
