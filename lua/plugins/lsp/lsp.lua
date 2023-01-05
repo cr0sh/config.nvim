@@ -28,7 +28,7 @@ lsp_on_attach = function(client, bufnr)
     require("lsp-format").on_attach(client)
 
     -- keybind options
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     -- set keybinds
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
