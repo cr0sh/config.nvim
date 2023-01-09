@@ -1,4 +1,5 @@
 require("lspconfig").sumneko_lua.setup {
+    on_attach = lsp_on_attach,
     settings = {
         Lua = {
             runtime = {
