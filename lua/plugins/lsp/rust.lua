@@ -12,7 +12,7 @@ local on_init = function(client, bufnr)
     -- project-specific settings
     local path = client.workspace_folders[1].name
 
-    local function path_ends_with(ending) assert(ending ~= ""); return path:sub(-#ending) == ending end
+    local function path_ends_with(ending) assert(ending ~= ""); return path:sub(- #ending) == ending end
 
     if path_ends_with("dev/personal/wasmtime") then
         client.config.settings["rust-analyzer"].cargo.features = { "wasmtime/cranelift" }

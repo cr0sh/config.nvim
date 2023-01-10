@@ -17,5 +17,3 @@ notify.setup({
     timeout = 5000,
     top_down = false
 })
-
-

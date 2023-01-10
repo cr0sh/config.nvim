@@ -61,9 +61,9 @@ return require("packer").startup(function(use)
     use {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
-            require"telescope".load_extension("frecency")
+            require "telescope".load_extension("frecency")
         end,
-        requires = {"kkharji/sqlite.lua"}
+        requires = { "kkharji/sqlite.lua" }
     }
 
     -- use "tanvirtin/monokai.nvim"
@@ -74,15 +74,15 @@ return require("packer").startup(function(use)
 
     use "neovim/nvim-lspconfig" -- easily configure language servers
     use "ray-x/lsp_signature.nvim"
-    
+
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp" -- for autocompletion
-        -- Useful completion sources:
+    -- Useful completion sources:
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-vsnip'                             
-    use 'hrsh7th/cmp-path'                              
-    use 'hrsh7th/cmp-buffer'                            
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/vim-vsnip'
     use "jose-elias-alvarez/typescript.nvim" -- additional functionality for typescript server (e.g. rename file & update imports
     use "onsails/lspkind.nvim" -- vs-code like icons for autocompletion
@@ -104,15 +104,16 @@ return require("packer").startup(function(use)
 
     use "TimUntersberger/neogit"
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
             }
         end
     }

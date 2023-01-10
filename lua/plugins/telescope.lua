@@ -45,4 +45,3 @@ vim.keymap.set("i", [[<C-\>f]], ":Telescope find_files<CR>", { noremap = true, s
 vim.keymap.set("n", [[<C-\>f]], ":Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", [[<C-]>]], "<Esc>:Telescope notify<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", [[<C-]>]], ":Telescope notify<CR>", { noremap = true, silent = true })
-
