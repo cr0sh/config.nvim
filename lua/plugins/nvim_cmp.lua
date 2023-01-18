@@ -43,7 +43,7 @@ cmp.setup({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
         -- https://github.com/L3MON4D3/LuaSnip/issues/532#issuecomment-1217118043
-        ["<Tab>"] = cmp.mapping(
+        ["<C-l>"] = cmp.mapping(
             function(fallback)
                 if luasnip.expand_or_locally_jumpable() then
                     luasnip.expand_or_jump()
@@ -58,7 +58,7 @@ cmp.setup({
             end, { "i", "s", }
         ),
 
-        ["<S-Tab>"] = cmp.mapping(function(fallback) -- use shift-tab for prev suggestion
+        ["<C-h>"] = cmp.mapping(function(fallback) -- use shift-tab for prev suggestion
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
