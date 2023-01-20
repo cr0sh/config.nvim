@@ -55,6 +55,7 @@ require "plugins.treesitter"
 require "plugins.floaterm"
 require "plugins.autopairs"
 require "plugins.trouble"
+require "plugins.bufferline"
 
 require "plugins.lsp.lsp"
 require "plugins.lsp.mason"
@@ -68,4 +69,3 @@ require "plugins.lsp.python"
 -- Filetypes
 
 require "filetypes.markdown"
-

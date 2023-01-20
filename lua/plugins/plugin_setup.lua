@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
 
     use "nvim-tree/nvim-tree.lua"
     use "nvim-lualine/lualine.nvim"
+    use "akinsho/bufferline.nvim"
 
     use "rmagatti/auto-session"
 
@@ -53,7 +54,6 @@ return require("packer").startup(function(use)
     }
 
     use "ziglang/zig.vim"
-
 
     use "nvim-lua/plenary.nvim"
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } -- dependency for better sorting performance
