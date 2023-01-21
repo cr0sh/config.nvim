@@ -30,7 +30,7 @@ return require("packer").startup(function(use)
     use "tpope/vim-surround"
     use "vim-scripts/ReplaceWithRegister"
     use "numToStr/Comment.nvim"
-    use "voldikss/vim-floaterm"
+    use { "akinsho/toggleterm.nvim", tag = "*" }
 
     use "nvim-tree/nvim-tree.lua"
     use "nvim-lualine/lualine.nvim"
