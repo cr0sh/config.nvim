@@ -28,7 +28,7 @@ end
 
 local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
-    lsp_on_attach(client, bufnr)
+    LSP_ON_ATTACH(client, bufnr)
     vim.keymap.set('n', 'K', rust_tools.hover_actions.hover_actions, opts)
     vim.keymap.set('n', "<leader>ac", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
 end

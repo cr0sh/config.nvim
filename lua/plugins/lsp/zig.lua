@@ -1,6 +1,6 @@
 local lspconfig = require "lspconfig"
 local on_attach = function(client, bufnr)
-    lsp_on_attach(client, bufnr)
+    LSP_ON_ATTACH(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 local servers = { "zls" }

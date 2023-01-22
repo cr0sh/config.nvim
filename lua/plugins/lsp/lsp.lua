@@ -24,7 +24,7 @@ saga.setup({
 
 
 -- enable keybinds only for when lsp server available
-lsp_on_attach = function(client, bufnr)
+LSP_ON_ATTACH = function(client, bufnr)
     require("lsp-format").on_attach(client)
 
     -- keybind options
