@@ -4,7 +4,7 @@ local saga = require "lspsaga"
 
 require("lsp-format").setup({})
 
-saga.init_lsp_saga({
+saga.setup({
     border_style = "rounded",
     -- keybinds for navigation in lspsaga window
     move_in_saga = { prev = "<C-k>", next = "<C-j>" },
