@@ -1,8 +1,6 @@
-local lspconfig = require "lspconfig"
-local cmp_nvim_lsp = require "cmp_nvim_lsp"
-local saga = require "lspsaga"
-
-require("lsp-format").setup({})
+local lspconfig = require("lspconfig")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local saga = require("lspsaga")
 
 saga.setup({
     border_style = "rounded",
@@ -22,25 +20,24 @@ saga.setup({
     max_preview_lines = 20,
 })
 
-
 -- enable keybinds only for when lsp server available
 LSP_ON_ATTACH = function(client, bufnr)
-    require("lsp-format").on_attach(client)
-
     -- keybind options
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     -- set keybinds
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<leader>ff', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+    vim.keymap.set("n", "<leader>ff", function()
+        vim.lsp.buf.format()
+    end, bufopts)
 
     local cfg = {
         debug = false, -- set to true to enable debug logging

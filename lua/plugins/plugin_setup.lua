@@ -70,7 +70,7 @@ return require("packer").startup(function(use)
     use "navarasu/onedark.nvim"
 
     -- configuring lsp servers
-    use "lukas-reineke/lsp-format.nvim"
+    use "jose-elias-alvarez/null-ls.nvim"
 
     use "neovim/nvim-lspconfig" -- easily configure language servers
     use "ray-x/lsp_signature.nvim"
