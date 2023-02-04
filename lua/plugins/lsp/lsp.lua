@@ -1,24 +1,5 @@
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local saga = require("lspsaga")
-
-saga.setup({
-    border_style = "rounded",
-    -- keybinds for navigation in lspsaga window
-    move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-    -- use enter to open file with finder
-    finder_action_keys = {
-        open = "<CR>",
-        scroll_down = "<C-f>",
-        scroll_up = "<C-b>", -- quit can be a table
-    },
-    -- use enter to open file with definition preview
-    definition_action_keys = {
-        edit = "<CR>",
-    },
-    preview_lines_above = 20,
-    max_preview_lines = 20,
-})
 
 -- enable keybinds only for when lsp server available
 LSP_ON_ATTACH = function(client, bufnr)
