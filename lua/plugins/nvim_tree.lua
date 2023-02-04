@@ -11,3 +11,5 @@ nvimtree.setup({
 })
 
 vim.keymap.set("n", "<Space>", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
+
+vim.api.nvim_create_autocmd("VimLeavePre", { command = [[NvimTreeClose]] })
