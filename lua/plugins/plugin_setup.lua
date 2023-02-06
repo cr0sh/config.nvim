@@ -38,7 +38,6 @@ return require("packer").startup(function(use)
 
     use("rmagatti/auto-session")
 
-    use("jose-elias-alvarez/null-ls.nvim")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
     use("simrat39/rust-tools.nvim")
