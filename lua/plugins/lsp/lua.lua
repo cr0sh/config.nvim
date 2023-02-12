@@ -1,12 +1,12 @@
-require("lspconfig").sumneko_lua.setup {
+require("lspconfig").lua_ls.setup({
     on_attach = LSP_ON_ATTACH,
     settings = {
         Lua = {
             runtime = {
-                version = 'LuaJIT',
+                version = "LuaJIT",
             },
             diagnostics = {
-                globals = { 'vim' },
+                globals = { "vim" },
             },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -17,4 +17,4 @@ require("lspconfig").sumneko_lua.setup {
             },
         },
     },
-}
+})
