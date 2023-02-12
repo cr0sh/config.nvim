@@ -30,7 +30,7 @@ vim.g.mapleader = ";"
 
 -- Workaround for notify.nvim
 -- https://github.com/rcarriga/nvim-notify/issues/63
-vim.opt.updatetime = 100
+vim.opt.updatetime = 500
 vim.opt.redrawtime = 1500
 vim.opt.lazyredraw = true
 vim.opt.timeout = true
