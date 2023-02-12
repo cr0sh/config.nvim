@@ -1,18 +1,21 @@
-local rust_tools = require "rust-tools"
+local rust_tools = require("rust-tools")
 
-local null_ls = require "null-ls"
-require("crates").setup {
+local null_ls = require("null-ls")
+require("crates").setup({
     null_ls = {
         enabled = true,
-        name = "crates.nvim"
-    }
-}
+        name = "crates.nvim",
+    },
+})
 
 local on_init = function(client, bufnr)
     -- project-specific settings
     local path = client.workspace_folders[1].name
 
-    local function path_ends_with(ending) assert(ending ~= ""); return path:sub(- #ending) == ending end
+    local function path_ends_with(ending)
+        assert(ending ~= "")
+        return path:sub(- #ending) == ending
+    end
 
     if path_ends_with("dev/personal/wasmtime") then
         client.config.settings["rust-analyzer"].cargo.features = { "wasmtime/cranelift" }
@@ -29,8 +32,7 @@ end
 local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     LSP_ON_ATTACH(client, bufnr)
-    vim.keymap.set('n', 'K', rust_tools.hover_actions.hover_actions, opts)
-    vim.keymap.set('n', "<leader>ac", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+    vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, opts)
 end
 
 rust_tools.setup({
@@ -51,5 +53,5 @@ rust_tools.setup({
                 },
             },
         },
-    }
+    },
 })
