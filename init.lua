@@ -51,7 +51,7 @@ require("plugins.floaterm")
 require("plugins.autopairs")
 require("plugins.trouble")
 require("plugins.bufferline")
-require("plugins.vgit")
+require("plugins.gitsigns")
 
 require("plugins.lsp.lsp")
 require("plugins.lsp.null_ls")

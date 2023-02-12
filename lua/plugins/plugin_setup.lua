@@ -122,9 +122,7 @@ return require("packer").startup(function(use)
         end,
     })
 
-    use({ "tanvirtin/vgit.nvim", requires = {
-        "nvim-lua/plenary.nvim",
-    } })
+    use("lewis6991/gitsigns.nvim")
 
     if packer_bootstrap then
         require("packer").sync()
