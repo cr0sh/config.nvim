@@ -1,8 +1,8 @@
 -- Setup
 
-require "plugins.plugin_setup"
-require "impatient"
-vim.notify = require "notify"
+require("plugins.plugin_setup")
+require("impatient")
+vim.notify = require("notify")
 
 -- Settings
 
@@ -21,7 +21,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.hidden = true
 vim.opt.updatetime = 300
 vim.wo.signcolumn = "yes"
-vim.cmd [[language en_US]]
+vim.cmd([[language en_US]])
 
 -- (Global) Key mappings
 
@@ -38,35 +38,30 @@ vim.opt.ttimeout = true
 vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 
-
 -- Plugins
 
+require("plugins.auto_session")
+require("plugins.telescope")
+require("plugins.nvim_tree")
+require("plugins.nvim_cmp")
+require("plugins.lualine")
+require("plugins.onedark")
+require("plugins.treesitter")
+require("plugins.floaterm")
+require("plugins.autopairs")
+require("plugins.trouble")
+require("plugins.bufferline")
+require("plugins.vgit")
 
-require "plugins.util"
-require "plugins.notify"
-
-require "plugins.auto_session"
-require "plugins.telescope"
-require "plugins.nvim_tree"
-require "plugins.nvim_cmp"
-require "plugins.lualine"
-require "plugins.onedark"
-require "plugins.treesitter"
-require "plugins.floaterm"
-require "plugins.autopairs"
-require "plugins.trouble"
-require "plugins.bufferline"
-
-require "plugins.lsp.lsp"
-require "plugins.lsp.null_ls"
-require "plugins.lsp.mason"
-require "plugins.lsp.rust"
-require "plugins.lsp.zig"
-require "plugins.lsp.typescript"
-require "plugins.lsp.lua"
-require "plugins.lsp.python"
-
+require("plugins.lsp.lsp")
+require("plugins.lsp.null_ls")
+require("plugins.lsp.mason")
+require("plugins.lsp.rust")
+require("plugins.lsp.zig")
+require("plugins.lsp.typescript")
+require("plugins.lsp.lua")
+require("plugins.lsp.python")
 
 -- Filetypes
 
-require "filetypes.markdown"
+require("filetypes.markdown")
