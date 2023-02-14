@@ -16,9 +16,7 @@ if not mason_null_ls_status then
     return
 end
 
-
 mason.setup()
-
 
 mason_lspconfig.setup({
     -- list of servers for mason to install
@@ -27,7 +25,7 @@ mason_lspconfig.setup({
         "html",
         "cssls",
         "tailwindcss",
-        "sumneko_lua",
+        "lua_ls",
         "clangd",
     },
     -- auto-install configured servers (with lspconfig)
