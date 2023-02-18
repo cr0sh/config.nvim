@@ -25,7 +25,7 @@ mason_lspconfig.setup({
         "html",
         "cssls",
         "tailwindcss",
-        "lua_ls",
+        "lua-ls",
         "clangd",
     },
     -- auto-install configured servers (with lspconfig)
