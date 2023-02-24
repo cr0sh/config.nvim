@@ -10,6 +10,5 @@ nvimtree.setup({
     hijack_netrw = true,
 })
 
-vim.keymap.set("n", "<Space>", ":NvimTreeToggle<CR>", { silent = true, noremap = true })
-
-vim.api.nvim_create_autocmd("VimLeavePre", { command = [[NvimTreeClose]] })
+vim.keymap.set("n", "<Space><Space>", ":NvimTreeFocus<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<Space>q", ":NvimTreeClose<CR>", { silent = true, noremap = true })
