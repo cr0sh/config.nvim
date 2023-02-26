@@ -23,10 +23,8 @@ local on_init = function(client, bufnr)
         client.config.settings["rust-analyzer"].checkOnSave.features = { "wasmtime/cranelift" }
         client.config.settings["rust-analyzer"].checkOnSave.extraEnv = { RUSTFLAGS = "--cfg=compiler" }
     elseif path_ends_with("dev/personal/wasynth") then
-        client.config.settings["rust-analyzer"].cargo.extraEnv =
-        { RUSTFLAGS = "--cfg=bytes_trace", CARGO_TARGET_DIR = "target/rust-analyzer" }
-        client.config.settings["rust-analyzer"].checkOnSave.extraEnv =
-        { RUSTFLAGS = "--cfg=bytes_trace", CARGO_TARGET_DIR = "target/rust-analyzer" }
+        client.config.settings["rust-analyzer"].cargo.features = { "bytes_trace " }
+        client.config.settings["rust-analyzer"].checkOnSave.extraEnv = { "bytes_trace" }
     else
         return
     end
