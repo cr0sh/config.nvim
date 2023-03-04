@@ -20,6 +20,7 @@ require("nvim-treesitter.configs").setup({
         "html",
         "css",
         "markdown",
+        "markdown_inline",
         "svelte",
         "graphql",
         "bash",
@@ -37,7 +38,7 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         extended_mode = true,
         max_file_lines = nil,
-    }
+    },
 })
 
 vim.keymap.set("n", "<leader>rr", "<Cmd>TSDisable rainbow|TSEnable rainbow<CR>")

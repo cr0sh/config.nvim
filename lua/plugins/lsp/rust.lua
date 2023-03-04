@@ -30,21 +30,19 @@ local on_init = function(client, bufnr)
 end
 
 require("lspconfig").rust_analyzer.setup({
-    server = {
-        on_init = on_init,
-        on_attach = LSP_ON_ATTACH, -- defined on lsp.lua
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "clippy",
-                    extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
-                },
-                cargo = {
-                    extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
-                },
+    on_init = on_init,
+    on_attach = LSP_ON_ATTACH, -- defined on lsp.lua
+    settings = {
+        -- to enable rust-analyzer settings visit:
+        -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+        ["rust-analyzer"] = {
+            -- enable clippy on save
+            checkOnSave = {
+                command = "clippy",
+                extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
+            },
+            cargo = {
+                extraEnv = { CARGO_TARGET_DIR = "target/rust-analyzer" },
             },
         },
     },
