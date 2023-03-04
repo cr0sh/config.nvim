@@ -1,6 +1,3 @@
-local rust_tools = require("rust-tools")
-
-local null_ls = require("null-ls")
 require("crates").setup({
     null_ls = {
         enabled = true,
@@ -14,7 +11,7 @@ local on_init = function(client, bufnr)
 
     local function path_ends_with(ending)
         assert(ending ~= "")
-        return path:sub(- #ending) == ending
+        return path:sub( -#ending) == ending
     end
 
     if path_ends_with("dev/personal/wasmtime") then
@@ -32,16 +29,10 @@ local on_init = function(client, bufnr)
     client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
 end
 
-local on_attach = function(client, bufnr)
-    local opts = { noremap = true, silent = true, buffer = bufnr }
-    LSP_ON_ATTACH(client, bufnr)
-    vim.keymap.set("n", "K", rust_tools.hover_actions.hover_actions, opts)
-end
-
-rust_tools.setup({
+require("lspconfig").rust_analyzer.setup({
     server = {
         on_init = on_init,
-        on_attach = on_attach, -- defined on lsp.lua
+        on_attach = LSP_ON_ATTACH, -- defined on lsp.lua
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
