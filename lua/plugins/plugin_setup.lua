@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 	use({
 		"akinsho/toggleterm.nvim",
 		config = function()
-			require("toggleterm").setup()
+			require("toggleterm").setup({ size = 20 })
 		end,
 	})
 
