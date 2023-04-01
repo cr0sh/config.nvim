@@ -30,12 +30,7 @@ return require("packer").startup(function(use)
     use("tpope/vim-surround")
     use("vim-scripts/ReplaceWithRegister")
     use("numToStr/Comment.nvim")
-    use({
-        "akinsho/toggleterm.nvim",
-        config = function()
-            require("toggleterm").setup({ size = 20 })
-        end,
-    })
+    use("akinsho/toggleterm.nvim")
 
     use("nvim-tree/nvim-tree.lua")
     use("nvim-lualine/lualine.nvim")
