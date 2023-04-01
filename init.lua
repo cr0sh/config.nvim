@@ -63,6 +63,7 @@ require("plugins.lsp.typescript")
 require("plugins.lsp.lua")
 require("plugins.lsp.python")
 require("plugins.lsp.cpp")
+require("plugins.lsp.scala")
 
 -- Filetypes
 
