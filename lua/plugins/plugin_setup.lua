@@ -11,7 +11,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-
 local status, packer = pcall(require, "packer")
 if not status then
     return
