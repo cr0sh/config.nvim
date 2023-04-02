@@ -28,8 +28,6 @@ mason_lspconfig.setup({
         "lua_ls",
         "clangd",
     },
-    -- auto-install configured servers (with lspconfig)
-    automatic_installation = true, -- not the same as ensure_installed
 })
 
 mason_null_ls.setup({
@@ -44,6 +42,4 @@ mason_null_ls.setup({
         "clang_format",
         "clang_check",
     },
-    -- auto-install configured formatters & linters (with null-ls)
-    automatic_installation = true,
 })
