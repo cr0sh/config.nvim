@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
         enable = true,
     },
     -- enable indentation
-    indent = { enable = false },
+    indent = { enable = true },
     -- enable autotagging (w/ nvim-ts-autotag plugin)
     autotag = { enable = true },
     -- ensure these language parsers are installed
