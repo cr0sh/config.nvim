@@ -23,6 +23,9 @@ saga.setup({
         enable = true,
         sign_priority = 0,
     },
+    symbol_in_winbar = {
+        hide_keyword = false, -- Temporarily fix formatting bug on Scala
+    },
 })
 
 -- enable keybinds only for when lsp server available
