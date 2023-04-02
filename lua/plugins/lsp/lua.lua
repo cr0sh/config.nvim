@@ -1,7 +1,5 @@
 require("lspconfig").lua_ls.setup({
     on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
         LSP_ON_ATTACH(client, bufnr)
     end,
     settings = {
