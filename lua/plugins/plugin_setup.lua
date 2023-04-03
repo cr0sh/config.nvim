@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
     })
 
     use("ziglang/zig.vim")
+    use({ "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } })
 
     use("nvim-lua/plenary.nvim")
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
