@@ -40,7 +40,7 @@ cmp.setup({
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-o>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
         -- https://github.com/L3MON4D3/LuaSnip/issues/532#issuecomment-1217118043
         ["<C-l>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_locally_jumpable() then
