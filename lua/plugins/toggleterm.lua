@@ -1,4 +1,4 @@
-require("toggleterm").setup({ size = 20, auto_scroll = false })
+require("toggleterm").setup({ size = 20, auto_scroll = false, persist_size = false, persist_mode = false })
 
 vim.api.nvim_create_autocmd(
     "TermEnter",
