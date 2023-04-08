@@ -61,14 +61,6 @@ return require("packer").startup(function(use)
         requires = { "kkharji/sqlite.lua" },
     })
 
-    -- use("navarasu/onedark.nvim")
-    use({
-        "shaunsingh/solarized.nvim",
-        config = function()
-            require("solarized").set()
-        end,
-    })
-
     use("neovim/nvim-lspconfig") -- easily configure language servers
     use("ray-x/lsp_signature.nvim")
 
