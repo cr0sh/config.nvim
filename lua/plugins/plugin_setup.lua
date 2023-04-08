@@ -63,9 +63,9 @@ return require("packer").startup(function(use)
 
     -- use("navarasu/onedark.nvim")
     use({
-        "shaunsingh/solarized.nvim",
+        "Th3Whit3Wolf/one-nvim",
         config = function()
-            require("solarized").set()
+            vim.cmd [[colorscheme one-nvim]]
         end,
     })
 
