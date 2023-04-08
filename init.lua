@@ -20,6 +20,7 @@ vim.opt.scrolloff = 4
 vim.opt.encoding = "utf-8"
 vim.opt.hidden = true
 vim.opt.updatetime = 300
+vim.g.loaded_perl_provider = 0
 vim.wo.signcolumn = "yes"
 vim.cmd([[language en_US]])
 
