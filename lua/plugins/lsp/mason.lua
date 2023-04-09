@@ -31,6 +31,7 @@ mason_lspconfig.setup({
 })
 
 mason_null_ls.setup({
+    automatic_setup = true,
     -- list of formatters & linters for mason to install
     ensure_installed = {
         "prettier", -- ts/js formatter

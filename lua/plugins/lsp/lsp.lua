@@ -27,6 +27,8 @@ saga.setup({
     },
 })
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 -- enable keybinds only for when lsp server available
 LSP_ON_ATTACH = function(client, bufnr)
     -- keybind options
@@ -93,4 +95,15 @@ LSP_ON_ATTACH = function(client, bufnr)
         move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
     }
     require("lsp_signature").on_attach(cfg, bufnr) -- Note: add in lsp client on-attach
+
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
+            end,
+        })
+    end
 end

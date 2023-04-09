@@ -65,7 +65,7 @@ return require("packer").startup(function(use)
     use({
         "Th3Whit3Wolf/one-nvim",
         config = function()
-            vim.cmd [[colorscheme one-nvim]]
+            vim.cmd([[colorscheme one-nvim]])
         end,
     })
 
