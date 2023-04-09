@@ -10,7 +10,18 @@ nvimtree.setup({
     hijack_netrw = true,
 })
 
-vim.api.nvim_create_autocmd("VimLeavePre", { command = [[NvimTreeClose]] })
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  pattern = 'NvimTree*',
+  callback = function()
+    local view = require('nvim-tree.view')
+    local is_visible = view.is_visible()
+
+    local api = require('nvim-tree.api')
+    if not is_visible then
+      api.tree.open()
+    end
+  end,
+})
 
 vim.keymap.set("n", "<Space><Space>", ":NvimTreeFocus<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<Space>q", ":NvimTreeClose<CR>", { silent = true, noremap = true })
