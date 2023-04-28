@@ -64,7 +64,7 @@ require("plugins.lsp.lua")
 require("plugins.lsp.python")
 require("plugins.lsp.cpp")
 require("plugins.lsp.scala")
-require("plugins.lsp.golang")
+require("plugins.lsp.go")
 
 -- Filetypes
 
