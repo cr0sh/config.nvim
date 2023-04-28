@@ -8,4 +8,11 @@ require("lspconfig").gopls.setup({
             end,
         })
     end,
+    settings = {
+        gopls = {
+            analyses = {
+                composites = false,
+            },
+        },
+    },
 })
