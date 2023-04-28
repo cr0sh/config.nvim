@@ -86,6 +86,7 @@ return require("packer").startup(function(use)
     use("L3MON4D3/LuaSnip")
     use("windwp/nvim-autopairs")
     use("mrjones2014/nvim-ts-rainbow")
+    use("nathanaelkane/vim-indent-guides")
 
     -- treesitter configuration
     use({
