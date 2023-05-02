@@ -61,9 +61,8 @@ return require("packer").startup(function(use)
         requires = { "kkharji/sqlite.lua" },
     })
 
-    -- use("navarasu/onedark.nvim")
     use({
-        "Th3Whit3Wolf/one-nvim",
+        "cr0sh/one-nvim",
         config = function()
             vim.cmd([[colorscheme one-nvim]])
         end,
