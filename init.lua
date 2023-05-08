@@ -27,6 +27,12 @@ vim.cmd([[language en_US]])
 -- (Global) Key mappings
 
 vim.g.mapleader = ";"
+vim.cmd([[
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+]])
 -- vim.keymap.set("i", ";;", "<Esc>", { silent = true, noremap = true})
 
 -- Workaround for notify.nvim
