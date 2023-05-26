@@ -102,7 +102,7 @@ LSP_ON_ATTACH = function(client, bufnr)
             buffer = bufnr,
             callback = function()
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
+                vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 4000 })
             end,
         })
     end
