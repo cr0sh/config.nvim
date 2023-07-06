@@ -3,3 +3,9 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     pattern = "markdown",
     command = "setlocal shiftwidth=2",
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = vim.api.nvim_create_augroup("markdown_wrap", { clear = true }),
+    pattern = "markdown",
+    command = "set wrap | set textwidth=80",
+})
