@@ -75,3 +75,4 @@ require("plugins.lsp.go")
 -- Filetypes
 
 require("filetypes.markdown")
+require("filetypes.javascript")
