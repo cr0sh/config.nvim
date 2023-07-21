@@ -84,7 +84,7 @@ return require("packer").startup(function(use)
     use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
     use("L3MON4D3/LuaSnip")
     use("windwp/nvim-autopairs")
-    use("mrjones2014/nvim-ts-rainbow")
+    use("hiphish/rainbow-delimiters.nvim")
     use("nathanaelkane/vim-indent-guides")
 
     -- treesitter configuration
