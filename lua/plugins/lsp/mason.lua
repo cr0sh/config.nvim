@@ -38,7 +38,6 @@ mason_null_ls.setup({
         "stylua", -- lua formatter
         "eslint_d", -- ts/js linter
         "goimports",
-        "rustfmt",
         "zigfmt",
         "clang_format",
         "clang_check",
