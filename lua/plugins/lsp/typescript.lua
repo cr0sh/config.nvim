@@ -32,4 +32,5 @@ lspconfig["denols"].setup({
 -- ESLint
 lspconfig["eslint"].setup({
     on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern("package.json"),
 })
