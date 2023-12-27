@@ -35,7 +35,6 @@ mason_null_ls.setup({
     -- list of formatters & linters for mason to install
     ensure_installed = {
         "stylua", -- lua formatter
-        "eslint_d", -- ts/js linter
         "goimports",
         "zigfmt",
         "clang_format",
