@@ -123,6 +123,20 @@ return require("packer").startup(function(use)
 
     use("lewis6991/gitsigns.nvim")
     use("editorconfig/editorconfig-vim")
+    use({
+        "nathom/filetype.nvim",
+        config = function()
+            require("filetype").setup({
+                overrides = {
+                    extensions = {
+                        tf = "terraform",
+                        tfvars = "terraform",
+                        tfstate = "json",
+                    },
+                },
+            })
+        end,
+    })
 
     if packer_bootstrap then
         require("packer").sync()
