@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
         "cr0sh/one-nvim",
         config = function()
             vim.cmd([[colorscheme one-nvim]])
+            vim.o.background = "light"
         end,
     })
 
