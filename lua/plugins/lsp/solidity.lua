@@ -2,6 +2,7 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 
 configs.solidity = {
+    on_attach = LSP_ON_ATTACH,
     default_config = {
         cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
         filetypes = { "solidity" },
@@ -10,4 +11,6 @@ configs.solidity = {
     },
 }
 
-lspconfig.solidity.setup({})
+lspconfig.solidity.setup({
+    on_attach = LSP_ON_ATTACH,
+})
