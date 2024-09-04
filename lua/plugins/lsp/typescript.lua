@@ -8,7 +8,7 @@ end
 lspconfig["tsserver"].setup({
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("package.json"),
-    cmd = { "pnpm", "typescript-language-server", "--stdio" },
+    cmd = { "bun", "typescript-language-server", "--stdio" },
     single_file_support = false,
     settings = {
         typescript = {
@@ -31,14 +31,20 @@ lspconfig["denols"].setup({
 })
 
 -- ESLint
--- lspconfig["eslint"].setup({
---     on_attach = on_attach,
---     root_dir = lspconfig.util.root_pattern("package.json"),
---     settings = {
---         -- https://github.com/LazyVim/LazyVim/issues/3383#issuecomment-2140686161
---         useFlatConfig = true, -- set if using flat config
---         experimental = {
---             useFlatConfig = nil, -- option not in the latest eslint-lsp
---         },
---     },
--- })
+lspconfig["eslint"].setup({
+    on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    settings = {
+        -- https://github.com/LazyVim/LazyVim/issues/3383#issuecomment-2140686161
+        useFlatConfig = true, -- set if using flat config
+        experimental = {
+            useFlatConfig = nil, -- option not in the latest eslint-lsp
+        },
+    },
+})
+
+-- Tailwind
+lspconfig["tailwindcss"].setup({
+    on_attach = on_attach,
+    root_dir = lspconfig.util.root_pattern("tailwind.config.js"),
+})
