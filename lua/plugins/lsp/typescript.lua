@@ -8,7 +8,7 @@ end
 lspconfig["tsserver"].setup({
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("package.json"),
-    cmd = { "bun", "typescript-language-server", "--stdio" },
+    -- cmd = { "bun", "typescript-language-server", "--stdio" },
     single_file_support = false,
     settings = {
         typescript = {
