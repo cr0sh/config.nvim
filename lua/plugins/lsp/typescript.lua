@@ -33,7 +33,7 @@ lspconfig["denols"].setup({
 -- ESLint
 lspconfig["eslint"].setup({
     on_attach = on_attach,
-    root_dir = lspconfig.util.root_pattern("package.json"),
+    root_dir = lspconfig.util.root_pattern("eslint.config.js"),
     settings = {
         -- https://github.com/LazyVim/LazyVim/issues/3383#issuecomment-2140686161
         useFlatConfig = true, -- set if using flat config
