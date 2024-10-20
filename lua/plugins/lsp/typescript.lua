@@ -5,7 +5,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- TypeScript
-lspconfig["tsserver"].setup({
+lspconfig["ts_ls"].setup({
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("package.json"),
     -- cmd = { "bun", "typescript-language-server", "--stdio" },
