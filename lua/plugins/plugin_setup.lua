@@ -35,8 +35,6 @@ return require("packer").startup(function(use)
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
     use("simrat39/rust-tools.nvim")
-    use("jayp0521/mason-null-ls.nvim")
-    use("jose-elias-alvarez/null-ls.nvim")
     use("glepnir/lspsaga.nvim")
     use({
         "saecki/crates.nvim",
@@ -44,6 +42,23 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
         config = function()
             require("crates").setup()
+        end,
+    })
+    use({
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                    python = { "isort", "black" },
+                    rust = { "rustfmt", lsp_format = "fallback" },
+                    javascript = { "prettierd", "prettier", "tsserver", stop_after_first = true },
+                },
+                format_on_save = {
+                    lsp_format = "fallback",
+                    timeout_ms = 500,
+                },
+            })
         end,
     })
 

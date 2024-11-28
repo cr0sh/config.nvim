@@ -1,13 +1,5 @@
 local rust_tools = require("rust-tools")
 
-local null_ls = require("null-ls")
-require("crates").setup({
-    null_ls = {
-        enabled = true,
-        name = "crates.nvim",
-    },
-})
-
 local on_init = function(client, bufnr)
     -- project-specific settings
     local path = client.workspace_folders[1].name

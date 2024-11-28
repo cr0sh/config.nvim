@@ -61,7 +61,6 @@ require("plugins.gitsigns")
 require("plugins.notify")
 
 require("plugins.lsp.lsp")
-require("plugins.lsp.null_ls")
 require("plugins.lsp.mason")
 require("plugins.lsp.rust")
 require("plugins.lsp.zig")
