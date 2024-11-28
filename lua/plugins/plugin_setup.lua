@@ -59,6 +59,7 @@ return require("packer").startup(function(use)
                     rust = { "rustfmt", lsp_format = "fallback" },
                     javascript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
                     typescript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
+                    solidity = { "forge_fmt", lsp_format = "fallback", stop_after_first = true },
                 },
                 format_on_save = {
                     lsp_format = "fallback",
