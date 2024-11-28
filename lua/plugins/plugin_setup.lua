@@ -52,11 +52,12 @@ return require("packer").startup(function(use)
                     lua = { "stylua" },
                     python = { "isort", "black" },
                     rust = { "rustfmt", lsp_format = "fallback" },
-                    javascript = { "prettierd", "prettier", "tsserver", stop_after_first = true },
+                    javascript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
+                    typescript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
                 },
                 format_on_save = {
                     lsp_format = "fallback",
-                    timeout_ms = 500,
+                    timeout_ms = 1500,
                 },
             })
         end,

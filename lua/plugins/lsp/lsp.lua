@@ -1,6 +1,5 @@
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local saga = require("lspsaga")
+local conform = require("conform")
 
 saga.setup({
     border_style = "rounded",
@@ -47,7 +46,7 @@ LSP_ON_ATTACH = function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<leader>ff", function()
-        vim.lsp.buf.format()
+        conform.format()
     end, bufopts)
 
     local cfg = {
@@ -96,14 +95,14 @@ LSP_ON_ATTACH = function(client, bufnr)
     }
     require("lsp_signature").on_attach(cfg, bufnr) -- Note: add in lsp client on-attach
 
-    if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 4000 })
-            end,
-        })
-    end
+    -- if client.supports_method("textDocument/formatting") then
+    --     vim.api.nvim_create_autocmd("BufWritePre", {
+    --         group = augroup,
+    --         buffer = bufnr,
+    --         callback = function()
+    --             -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+    --             vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 4000 })
+    --         end,
+    --     })
+    -- end
 end
