@@ -48,6 +48,11 @@ return require("packer").startup(function(use)
         "stevearc/conform.nvim",
         config = function()
             require("conform").setup({
+                formatters = {
+                    prettierd = {
+                        require_cwd = true,
+                    },
+                },
                 formatters_by_ft = {
                     lua = { "stylua" },
                     python = { "isort", "black" },
