@@ -10,17 +10,5 @@ nvimtree.setup({
     hijack_netrw = true,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "NvimTree" },
-    callback = function(args)
-        vim.api.nvim_create_autocmd("VimLeavePre", {
-            callback = function()
-                vim.api.nvim_buf_delete(args.buf, { force = true })
-                return true
-            end,
-        })
-    end,
-})
-
 vim.keymap.set("n", "<Space><Space>", ":NvimTreeFocus<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<Space>q", ":NvimTreeClose<CR>", { silent = true, noremap = true })
