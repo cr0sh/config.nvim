@@ -26,6 +26,10 @@ saga.setup({
     },
 })
 
+vim.diagnostic.config({
+    severity_sort = true,
+})
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- enable keybinds only for when lsp server available
