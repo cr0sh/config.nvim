@@ -58,7 +58,7 @@ return require("packer").startup(function(use)
                 },
                 formatters_by_ft = {
                     lua = { "stylua" },
-                    python = { "isort", "black" },
+                    python = { "ruff", "isort", "black" },
                     rust = { "rustfmt", lsp_format = "fallback" },
                     javascript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
                     typescript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
