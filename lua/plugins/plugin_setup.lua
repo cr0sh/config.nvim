@@ -52,6 +52,9 @@ return require("packer").startup(function(use)
                     prettierd = {
                         require_cwd = true,
                     },
+                    rustfmt = {
+                        prepend_args = { "+nightly" },
+                    },
                 },
                 formatters_by_ft = {
                     lua = { "stylua" },
