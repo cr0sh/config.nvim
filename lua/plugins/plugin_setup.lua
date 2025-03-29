@@ -34,7 +34,7 @@ return require("packer").startup(function(use)
 
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    use("simrat39/rust-tools.nvim")
+    use("mrcjkb/rustaceanvim")
     use("glepnir/lspsaga.nvim")
     use({
         "saecki/crates.nvim",
