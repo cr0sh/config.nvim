@@ -50,7 +50,9 @@ LSP_ON_ATTACH = function(client, bufnr)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<leader>ff", function()
-        conform.format()
+        conform.format({
+            timeout_ms = 3000,
+        })
     end, bufopts)
 
     local cfg = {

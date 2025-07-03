@@ -64,9 +64,9 @@ return require("packer").startup(function(use)
                     typescript = { "prettierd", lsp_format = "fallback", stop_after_first = true },
                     solidity = { "forge_fmt", lsp_format = "fallback", stop_after_first = true },
                 },
-                format_on_save = {
+                format_after_save = {
                     lsp_format = "fallback",
-                    timeout_ms = 1500,
+                    timeout_ms = 3000,
                 },
             })
         end,
