@@ -5,7 +5,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- TypeScript
-lspconfig["ts_ls"].setup({
+vim.lsp.config("ts_ls", {
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("package.json"),
     -- cmd = { "bun", "typescript-language-server", "--stdio" },
@@ -25,13 +25,13 @@ lspconfig["ts_ls"].setup({
 })
 
 -- Deno
-lspconfig["denols"].setup({
+vim.lsp.config("denols", {
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
 
 -- ESLint
-lspconfig["eslint"].setup({
+vim.lsp.config("eslint", {
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("eslint.config.js"),
     settings = {
@@ -44,7 +44,7 @@ lspconfig["eslint"].setup({
 })
 
 -- Tailwind
-lspconfig["tailwindcss"].setup({
+vim.lsp.config("tailwindcss", {
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("tailwind.config.js"),
 })

@@ -1,7 +1,6 @@
 local lspconfig = require("lspconfig")
-local configs = require("lspconfig.configs")
 
-configs.solidity = {
+vim.lsp.config("solidity_ls", {
     on_attach = LSP_ON_ATTACH,
     default_config = {
         cmd = { "vscode-solidity-server", "--stdio" },
@@ -12,10 +11,7 @@ configs.solidity = {
             compileUsingRemoteVersion = "latest",
             defaultCompiler = "remote",
             enabledAsYouTypeCompilationErrorCheck = true,
+            monoRepoSupport = false,
         },
     },
-}
-
-lspconfig.solidity.setup({
-    on_attach = LSP_ON_ATTACH,
 })

@@ -1,4 +1,4 @@
-require("lspconfig").clangd.setup({
+vim.lsp.config("clangd", {
     capabilities = {
         offsetEncoding = "utf-8",
     },

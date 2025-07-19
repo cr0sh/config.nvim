@@ -1,4 +1,4 @@
-require("lspconfig").lua_ls.setup({
+vim.lsp.config("lua_ls", {
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false

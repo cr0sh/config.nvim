@@ -1,4 +1,4 @@
-vim.g.rustaceanvim = {
+vim.lsp.config("rustaceanvim", {
     server = {
         on_attach = LSP_ON_ATTACH,
         settings = {
@@ -12,4 +12,4 @@ vim.g.rustaceanvim = {
             },
         },
     },
-}
+})

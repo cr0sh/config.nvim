@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
     on_attach = LSP_ON_ATTACH,
 })
