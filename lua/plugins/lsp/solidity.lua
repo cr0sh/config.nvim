@@ -1,7 +1,6 @@
 local lspconfig = require("lspconfig")
 
 vim.lsp.config("solidity_ls", {
-    on_attach = LSP_ON_ATTACH,
     default_config = {
         cmd = { "vscode-solidity-server", "--stdio" },
         filetypes = { "solidity" },

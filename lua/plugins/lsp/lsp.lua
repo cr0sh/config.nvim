@@ -112,3 +112,15 @@ LSP_ON_ATTACH = function(client, bufnr)
     --     })
     -- end
 end
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client then
+            return
+        end
+        for bufnr, _ in pairs(client.attached_buffers) do
+            LSP_ON_ATTACH(client, bufnr)
+        end
+    end,
+})
