@@ -49,9 +49,6 @@ return require("packer").startup(function(use)
         config = function()
             require("conform").setup({
                 formatters = {
-                    prettierd = {
-                        require_cwd = true,
-                    },
                     rustfmt = {
                         prepend_args = { "+nightly" },
                     },
