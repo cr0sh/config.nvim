@@ -2,9 +2,7 @@ local lspconfig = require("lspconfig")
 
 -- TypeScript
 vim.lsp.config("ts_ls", {
-    root_dir = lspconfig.util.root_pattern("package.json"),
     -- cmd = { "bun", "typescript-language-server", "--stdio" },
-    single_file_support = false,
     settings = {
         typescript = {
             format = {
