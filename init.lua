@@ -28,30 +28,16 @@ nnoremap k gk
 nnoremap gk k
 ]])
 
--- Workaround for notify.nvim
--- https://github.com/rcarriga/nvim-notify/issues/63
-vim.opt.updatetime = 500
-vim.opt.redrawtime = 1500
-vim.opt.lazyredraw = true
-vim.opt.timeout = true
-vim.opt.ttimeout = true
-vim.opt.timeoutlen = 500
-vim.opt.ttimeoutlen = 10
-
 -- Plugins
 
 require("plugins.lazy_setup")
-require("impatient")
-vim.notify = require("notify")
 
 -- vim.keymap.set("i", ";;", "<Esc>", { silent = true, noremap = true})
 
 -- Plugins
 
 require("plugins.auto_session")
-require("plugins.telescope")
 require("plugins.nvim_tree")
-require("plugins.nvim_cmp")
 require("plugins.lualine")
 require("plugins.treesitter")
 require("plugins.toggleterm")
