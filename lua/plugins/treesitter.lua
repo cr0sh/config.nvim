@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
     -- enable syntax highlighting
     highlight = {
         enable = true,

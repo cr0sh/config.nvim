@@ -1,11 +1,6 @@
--- Setup
+-- Setups before Lazy
 
-require("plugins.plugin_setup")
-require("impatient")
-vim.notify = require("notify")
-
--- Settings
-
+vim.g.mapleader = ";"
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.tabstop = 4
@@ -26,14 +21,12 @@ vim.cmd([[language en_US]])
 
 -- (Global) Key mappings
 
-vim.g.mapleader = ";"
 vim.cmd([[
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
 ]])
--- vim.keymap.set("i", ";;", "<Esc>", { silent = true, noremap = true})
 
 -- Workaround for notify.nvim
 -- https://github.com/rcarriga/nvim-notify/issues/63
@@ -44,6 +37,14 @@ vim.opt.timeout = true
 vim.opt.ttimeout = true
 vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
+
+-- Plugins
+
+require("plugins.lazy_setup")
+require("impatient")
+vim.notify = require("notify")
+
+-- vim.keymap.set("i", ";;", "<Esc>", { silent = true, noremap = true})
 
 -- Plugins
 
