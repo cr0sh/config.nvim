@@ -66,7 +66,6 @@ require("plugins.lsp.rust")
 require("plugins.lsp.typescript")
 require("plugins.lsp.lua")
 require("plugins.lsp.cpp")
-require("plugins.lsp.scala")
 require("plugins.lsp.go")
 require("plugins.lsp.solidity")
 
