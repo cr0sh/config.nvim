@@ -59,7 +59,6 @@ require("plugins.autopairs")
 require("plugins.trouble")
 require("plugins.bufferline")
 require("plugins.gitsigns")
-require("plugins.notify")
 
 require("plugins.lsp.lsp")
 require("plugins.lsp.mason")

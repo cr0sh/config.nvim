@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- Core utilities
     { "nvim-lua/plenary.nvim", lazy = true },
-    { "rcarriga/nvim-notify" },
     { "timonv/vim-cargo" },
     { "tpope/vim-surround" },
     { "vim-scripts/ReplaceWithRegister" },
@@ -160,6 +159,7 @@ require("lazy").setup({
                 ---@type snacks.Config
                 opts = {
                     bigfile = { enabled = true },
+                    bufdelete = { enabled = true },
                     dashboard = { enabled = true },
                     explorer = { enabled = true },
                     indent = { enabled = true },
@@ -169,7 +169,7 @@ require("lazy").setup({
                     terminal = { enabled = true },
                     quickfile = { enabled = true },
                     scope = { enabled = true },
-                    scroll = { enabled = true },
+                    -- scroll = { enabled = true },
                     statuscolumn = { enabled = true },
                     words = { enabled = true },
                 },
