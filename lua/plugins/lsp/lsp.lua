@@ -19,6 +19,7 @@ saga.setup({
     max_preview_lines = 20,
     lightbulb = {
         enable = true,
+        sign = false,
         sign_priority = 0,
     },
     symbol_in_winbar = {
