@@ -253,6 +253,15 @@ require("lazy").setup({
             end, { desc = "Execute opencode action…" })
             vim.keymap.set({ "n", "t" }, "<C-.>", function()
                 require("opencode").toggle()
+                local provider = require("opencode.config").provider
+                ---@diagnostic disable-next-line
+                if provider ~= nil and provider.get ~= nil and provider.name == "snacks" then
+                    ---@diagnostic disable-next-line
+                    local term = provider:get()
+                    if term:win_valid() then
+                        vim.api.nvim_set_current_win(term.win)
+                    end
+                end
             end, { desc = "Toggle opencode" })
 
             vim.keymap.set({ "n", "x" }, "go", function()
