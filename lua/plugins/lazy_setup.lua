@@ -197,7 +197,6 @@ require("lazy").setup({
             explorer = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
-            picker = { enabled = true },
             notifier = { enabled = true },
             terminal = { enabled = true },
             quickfile = { enabled = true },
@@ -207,6 +206,43 @@ require("lazy").setup({
             -- scroll = { enabled = true },
             statuscolumn = { enabled = true },
             -- words = { enabled = true },
+        },
+        keys = {
+            {
+                [[<C-\><C-\>]],
+                function()
+                    Snacks.picker.commands()
+                end,
+                desc = "Smart find commands",
+            },
+            {
+                [[<C-\>s]],
+                function()
+                    Snacks.picker.lsp_workspace_symbols()
+                end,
+                desc = "Smart find workspace commands",
+            },
+            {
+                [[<C-\>f]],
+                function()
+                    Snacks.picker.files()
+                end,
+                desc = "Smart find workspace commands",
+            },
+            {
+                [[<C-\>b]],
+                function()
+                    Snacks.picker.buffers()
+                end,
+                desc = "Smart find buffers",
+            },
+            {
+                [[<C-]>]],
+                function()
+                    Snacks.picker.notifications()
+                end,
+                desc = "Smart find notifications",
+            },
         },
     },
 
