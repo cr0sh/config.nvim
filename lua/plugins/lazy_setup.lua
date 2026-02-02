@@ -162,16 +162,6 @@ require("lazy").setup({
     { "TimUntersberger/neogit" },
     { "lewis6991/gitsigns.nvim" },
 
-    -- Markdown
-    {
-        "iamcco/markdown-preview.nvim",
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-
     -- Todo comments
     {
         "folke/todo-comments.nvim",
