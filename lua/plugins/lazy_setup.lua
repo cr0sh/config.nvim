@@ -335,6 +335,26 @@ require("lazy").setup({
 
             vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
             vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
+
+            -- Workaround for orphaned opencode process after Neovim exits
+            vim.api.nvim_create_autocmd("VimLeavePre", {
+                group = vim.api.nvim_create_augroup("OpencodeKill", { clear = true }),
+                callback = function()
+                    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                        local st = vim.b[buf].snacks_terminal
+                        if st and type(st.cmd) == "string" and st.cmd:find("opencode") then
+                            local ok, job_id = pcall(vim.api.nvim_buf_get_var, buf, "terminal_job_id")
+                            if ok and job_id then
+                                local pid_ok, pid = pcall(vim.fn.jobpid, job_id)
+                                if pid_ok and pid then
+                                    ---@diagnostic disable-next-line
+                                    vim.uv.kill(-pid, "sigint")
+                                end
+                            end
+                        end
+                    end
+                end,
+            })
         end,
     },
 })
