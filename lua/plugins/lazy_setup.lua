@@ -19,7 +19,6 @@ require("lazy").setup({
     { "tpope/vim-surround" },
     { "vim-scripts/ReplaceWithRegister" },
     { "numToStr/Comment.nvim" },
-    { "akinsho/toggleterm.nvim" },
 
     -- File explorer and UI
     { "nvim-tree/nvim-tree.lua" },
@@ -179,6 +178,37 @@ require("lazy").setup({
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
+        init = function()
+            vim.api.nvim_create_autocmd("VimEnter", {
+                once = true,
+                callback = function()
+                    vim.schedule(function()
+                        local term = Snacks.terminal(nil, {
+                            win = {
+                                border = "none",
+                                wo = {
+                                    winbar = "",
+                                },
+                                keys = {
+                                    esc = {
+                                        "<Esc>",
+                                        function(self)
+                                            self:hide()
+                                        end,
+                                        mode = "t",
+                                        desc = "Hide Terminal",
+                                        noremap = true,
+                                    },
+                                    term_normal = false,
+                                },
+                            },
+                        })
+                        term:hide()
+                        vim.cmd("stopinsert")
+                    end)
+                end,
+            })
+        end,
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
@@ -188,7 +218,9 @@ require("lazy").setup({
             indent = { enabled = true },
             input = { enabled = true },
             notifier = { enabled = true },
-            terminal = { enabled = true },
+            terminal = {
+                enabled = true,
+            },
             quickfile = { enabled = true },
             scope = { enabled = true },
             keymap = { enabled = true },
@@ -232,6 +264,29 @@ require("lazy").setup({
                     Snacks.picker.notifications()
                 end,
                 desc = "Smart find notifications",
+            },
+            {
+                [[t]],
+                function()
+                    vim.cmd([[Trouble diagnostics close]])
+                    Snacks.terminal(nil, {
+                        win = {
+                            keys = {
+                                esc = {
+                                    "<Esc>",
+                                    function(self)
+                                        self:hide()
+                                    end,
+                                    mode = "t",
+                                    desc = "Hide Terminal",
+                                    noremap = true,
+                                },
+                                term_normal = false,
+                            },
+                        },
+                    })
+                end,
+                desc = "Toggle terminal",
             },
         },
     },
