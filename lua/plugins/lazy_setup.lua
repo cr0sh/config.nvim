@@ -220,6 +220,11 @@ require("lazy").setup({
             notifier = { enabled = true },
             terminal = {
                 enabled = true,
+                win = {
+                    wo = {
+                        winbar = "",
+                    },
+                },
             },
             quickfile = { enabled = true },
             scope = { enabled = true },
