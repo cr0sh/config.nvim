@@ -301,11 +301,7 @@ require("lazy").setup({
         "NickvanDyke/opencode.nvim",
         config = function()
             ---@type opencode.Opts
-            vim.g.opencode_opts = {
-                provider = {
-                    cmd = "OPENCODE_ENABLE_EXA=1 opencode --port",
-                },
-            }
+            vim.g.opencode_opts = {}
 
             vim.o.autoread = true
 
