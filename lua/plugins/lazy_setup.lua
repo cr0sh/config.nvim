@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- Core utilities
-    { "nvim-lua/plenary.nvim",            lazy = true },
+    { "nvim-lua/plenary.nvim", lazy = true },
     { "timonv/vim-cargo" },
     { "tpope/vim-surround" },
     { "vim-scripts/ReplaceWithRegister" },
@@ -190,6 +190,14 @@ require("lazy").setup({
                         term:hide()
                         vim.cmd("stopinsert")
                     end)
+                end,
+            })
+            -- Fix broken bg(why?)
+            vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
+            vim.api.nvim_create_autocmd("ColorScheme", {
+                pattern = "*",
+                callback = function()
+                    vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
                 end,
             })
         end,
