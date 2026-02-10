@@ -171,6 +171,7 @@ require("lazy").setup({
                                 border = "none",
                                 wo = {
                                     winbar = "",
+                                    winhighlight = "Normal:Normal",
                                 },
                                 keys = {
                                     esc = {
@@ -206,6 +207,7 @@ require("lazy").setup({
                 win = {
                     wo = {
                         winbar = "",
+                        winhighlight = "Normal:Normal",
                     },
                 },
             },
