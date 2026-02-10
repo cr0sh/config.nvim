@@ -61,15 +61,6 @@ require("lazy").setup({
     -- Language support
     { "ziglang/zig.vim" },
 
-    -- Colorscheme
-    {
-        "cr0sh/one-nvim",
-        config = function()
-            vim.cmd([[colorscheme one-nvim]])
-            vim.o.background = "light"
-        end,
-    },
-
     -- LSP
     { "neovim/nvim-lspconfig" },
     { "ray-x/lsp_signature.nvim" },

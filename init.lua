@@ -18,6 +18,7 @@ vim.opt.updatetime = 300
 vim.g.loaded_perl_provider = 0
 vim.opt.signcolumn = "yes"
 vim.cmd([[language en_US]])
+vim.cmd([[colorscheme sorbet]])
 
 -- (Global) Key mappings
 
