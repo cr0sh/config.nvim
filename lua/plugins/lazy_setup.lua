@@ -192,16 +192,6 @@ require("lazy").setup({
                     end)
                 end,
             })
-            -- Fix broken bg(why?)
-            vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
-            vim.api.nvim_set_hl(0, "Pmenu", { bg = "none", nocombine = true })
-            vim.api.nvim_create_autocmd("ColorScheme", {
-                pattern = "*",
-                callback = function()
-                    vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "none", nocombine = true })
-                    vim.api.nvim_set_hl(0, "Pmenu", { bg = "none", nocombine = true })
-                end,
-            })
         end,
         ---@type snacks.Config
         opts = {
