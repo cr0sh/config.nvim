@@ -137,25 +137,41 @@ function M.apply_flexoki_light()
     vim.api.nvim_set_hl(0, "Typedef", { link = "Type" })
 end
 
-function M.detect_and_apply()
+function M.detect_and_apply(override)
     -- Clear existing highlights
     vim.cmd("hi clear")
     vim.cmd("syntax reset")
 
-    -- Detect system dark mode on macOS
-    local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
-    if handle ~= nil then
+    local is_dark
+
+    ---@diagnostic disable
+    if override then
+        -- Use parameter override
+        is_dark = (override == "dark")
+    else
+        -- Detect system dark mode on macOS
+        local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
         local result = handle:read("*a")
         handle:close()
-        if result:match("Dark") then
-            -- Dark mode - use sorbet
-            vim.o.background = "dark"
-            vim.cmd("colorscheme sorbet")
-        else
-            -- Light mode - use flexoki light
-            vim.o.background = "light"
-            M.apply_flexoki_light()
-        end
+        is_dark = result:match("Dark") ~= nil
+    end
+
+    if is_dark then
+        vim.o.background = "dark"
+        vim.cmd("colorscheme sorbet")
+    else
+        vim.o.background = "light"
+        M.apply_flexoki_light()
+    end
+
+    if Snacks ~= nil and override then
+        Snacks.notify(
+            string.format(
+                "theme set to %s, override=%s",
+                is_dark and "dark" or "light",
+                (override or "unset"),
+            )
+        )
     end
 end
 
@@ -167,29 +183,17 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
--- Check whenever Neovim gains focus
-vim.api.nvim_create_autocmd({ "FocusGained", "VimResume" }, {
-    callback = function()
-        M.detect_and_apply()
-    end,
-    desc = "Auto-switch theme based on system appearance",
-})
-
 function M.setup()
-    -- Apply on startup
-    M.detect_and_apply()
-
     -- Start RPC server with a known address
-    local server_addr = vim.fn.stdpath("run") .. "/nvim-theme-switcher.sock"
+    local socket_dir = "/tmp/nvim-theme-switcher"
+    local server_addr = socket_dir .. "/" .. vim.fn.getpid() .. ".sock"
 
-    -- Clean up old socket if it exists
+    vim.fn.mkdir(socket_dir, "p")
     vim.fn.delete(server_addr)
-
-    -- Start the server
     vim.fn.serverstart(server_addr)
 
     -- Check whenever Neovim gains focus (works outside tmux)
-    vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
+    vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained", "VimResume" }, {
         callback = function()
             M.detect_and_apply()
         end,

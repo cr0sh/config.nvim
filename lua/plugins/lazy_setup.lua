@@ -167,6 +167,9 @@ require("lazy").setup({
                 callback = function()
                     vim.schedule(function()
                         local term = Snacks.terminal(nil, {
+                            env = {
+                                ["NO_THEME_SWITCHER"] = "1",
+                            },
                             win = {
                                 border = "none",
                                 wo = {
