@@ -294,7 +294,7 @@ require("lazy").setup({
             ---@type opencode.Opts
             vim.g.opencode_opts = {
                 provider = {
-                    cmd = "OPENCODE_EXPERIMENTAL_MARKDOWN=1 opencode --port",
+                    cmd = "OPENCODE_EXPERIMENTAL=1 opencode --port",
                 },
             }
 
