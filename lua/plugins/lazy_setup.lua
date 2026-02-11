@@ -315,6 +315,11 @@ require("lazy").setup({
                     local term = provider:get()
                     if term:win_valid() then
                         vim.api.nvim_set_current_win(term.win)
+                        -- Trigger a tiny resize to force OpenTUI to redraw
+                        vim.cmd([[noautocmd wincmd <]])
+                        vim.defer_fn(function()
+                            vim.cmd([[noautocmd wincmd >]])
+                        end, 250)
                     end
                 end
             end, { desc = "Toggle opencode" })
@@ -354,6 +359,12 @@ require("lazy").setup({
                         end
                     end
                 end,
+            })
+
+            -- Workaround for broken TUI on extreme dimensions
+            vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+                pattern = "term://*opencode*",
+                callback = function() end,
             })
         end,
     },
