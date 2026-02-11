@@ -166,11 +166,7 @@ function M.detect_and_apply(override)
 
     if Snacks ~= nil and override then
         Snacks.notify(
-            string.format(
-                "theme set to %s, override=%s",
-                is_dark and "dark" or "light",
-                (override or "unset"),
-            )
+            string.format("theme set to %s, override=%s", is_dark and "dark" or "light", (override or "unset"))
         )
     end
 end
