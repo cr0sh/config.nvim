@@ -20,9 +20,6 @@ vim.opt.signcolumn = "yes"
 vim.cmd([[language en_US]])
 vim.cmd([[colorscheme sorbet]])
 
--- Colorscheme
-require("theme-switcher").setup()
-
 -- (Global) Key mappings
 
 vim.cmd([[
@@ -62,3 +59,6 @@ require("plugins.lsp.solidity")
 
 require("filetypes.markdown")
 require("filetypes.javascript")
+
+-- Colorscheme
+require("theme-switcher").setup()

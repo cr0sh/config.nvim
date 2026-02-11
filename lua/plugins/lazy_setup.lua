@@ -166,7 +166,7 @@ require("lazy").setup({
                 once = true,
                 callback = function()
                     vim.schedule(function()
-                        local term = Snacks.terminal(nil, {
+                        local term = Snacks.terminal.toggle(nil, {
                             env = {
                                 ["NO_THEME_SWITCHER"] = "1",
                             },
@@ -262,7 +262,10 @@ require("lazy").setup({
                 [[t]],
                 function()
                     vim.cmd([[Trouble diagnostics close]])
-                    Snacks.terminal(nil, {
+                    Snacks.terminal.toggle(nil, {
+                        env = {
+                            ["NO_THEME_SWITCHER"] = "1",
+                        },
                         win = {
                             keys = {
                                 esc = {

@@ -191,7 +191,9 @@ function M.setup()
     -- Check whenever Neovim gains focus (works outside tmux)
     vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained", "VimResume" }, {
         callback = function()
-            M.detect_and_apply()
+            vim.schedule(function()
+                M.detect_and_apply()
+            end)
         end,
         desc = "Auto-switch theme based on system appearance",
     })
