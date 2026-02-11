@@ -149,11 +149,23 @@ function M.detect_and_apply(override)
         -- Use parameter override
         is_dark = (override == "dark")
     else
-        -- Detect system dark mode on macOS
-        local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
-        local result = handle:read("*a")
-        handle:close()
-        is_dark = result:match("Dark") ~= nil
+        local system_overriden
+        local f = io.open("/tmp/.overriden-theme", "r")
+        if f ~= nil then
+            system_overriden = f:read(30)
+            f:close()
+        end
+        if system_overriden == "dark" then
+            is_dark = true
+        elseif system_overriden == "light" then
+            is_dark = false
+        else
+            -- Fallback to defaults read
+            local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+            local result = handle:read("*a")
+            handle:close()
+            is_dark = result:match("Dark") ~= nil
+        end
     end
 
     if is_dark then
