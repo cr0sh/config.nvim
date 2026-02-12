@@ -294,7 +294,15 @@ require("lazy").setup({
             ---@type opencode.Opts
             vim.g.opencode_opts = {
                 provider = {
-                    cmd = "OPENCODE_EXPERIMENTAL=1 opencode --port",
+                    cmd = "OPENCODE_EXPERIMENTAL_ICON_DISCOVERY=1 "
+                        .. "OPENCODE_ENABLE_EXA=0 "
+                        .. "OPENCODE_EXPERIMENTAL_BASH_DEFAULT_TIMEOUT_MS=60000 "
+                        .. "OPENCODE_EXPERIMENTAL_OXFMT=1 "
+                        .. "OPENCODE_EXPERIMENTAL_LSP_TOOL=1 "
+                        .. "OPENCODE_EXPERIMENTAL_LSP_TY=1 "
+                        .. "OPENCODE_EXPERIMENTAL_MARKDOWN=1 "
+                        .. "OPENCODE_EXPERIMENTAL_PLAN_MODE=1 "
+                        .. "opencode --port",
                 },
             }
 
