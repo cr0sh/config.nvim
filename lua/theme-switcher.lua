@@ -201,7 +201,7 @@ function M.setup()
     vim.fn.serverstart(server_addr)
 
     -- Check whenever Neovim gains focus (works outside tmux)
-    vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained", "VimResume" }, {
+    vim.api.nvim_create_autocmd({ "VimEnter", "FocusGained", "VimResume", "BufNew" }, {
         callback = function()
             vim.schedule(function()
                 M.detect_and_apply()
