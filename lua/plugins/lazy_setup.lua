@@ -31,7 +31,7 @@ require("lazy").setup({
     -- LSP and Mason
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
-    { "mrcjkb/rustaceanvim" },
+    { "mrcjkb/rustaceanvim", version = "^7", lazy = false },
     { "glepnir/lspsaga.nvim" },
     {
         "stevearc/conform.nvim",
