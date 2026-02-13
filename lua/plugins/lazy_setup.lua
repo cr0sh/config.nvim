@@ -301,7 +301,6 @@ require("lazy").setup({
                         .. "OPENCODE_EXPERIMENTAL_LSP_TOOL=1 "
                         .. "OPENCODE_EXPERIMENTAL_LSP_TY=1 "
                         .. "OPENCODE_EXPERIMENTAL_MARKDOWN=1 "
-                        .. "OPENCODE_EXPERIMENTAL_PLAN_MODE=1 "
                         .. "opencode --port",
                 },
             }
