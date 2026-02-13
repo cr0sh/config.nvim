@@ -9,3 +9,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = "markdown",
     command = "set wrap | set textwidth=80",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("markdown_underscore_noop", { clear = true }),
+    pattern = "markdown",
+    callback = function()
+        vim.schedule(function()
+            vim.cmd("syn match markdownUnderscoreNoop /_/")
+        end)
+    end,
+})
