@@ -213,6 +213,7 @@ require("lazy").setup({
                         local term = Snacks.terminal.toggle(nil, {
                             env = {
                                 ["NO_THEME_SWITCHER"] = "1",
+                                ["NO_TMUX"] = "1",
                             },
                             win = {
                                 border = "none",
