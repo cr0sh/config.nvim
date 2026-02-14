@@ -105,7 +105,21 @@ require("lazy").setup({
             },
 
             -- (Default) Only show the documentation popup when manually triggered
-            completion = { documentation = { auto_show = false }, menu = { auto_show = true } },
+            completion = {
+                documentation = { auto_show = false },
+                menu = {
+                    auto_show = true,
+                    draw = {
+                        components = {
+                            kind_icon = {
+                                text = function(ctx)
+                                    return require("lspkind").symbol_map[ctx.kind] or ""
+                                end,
+                            },
+                        },
+                    },
+                },
+            },
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
