@@ -12,6 +12,32 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local function sigwinch_to_tpgid(bufnr)
+    local job = vim.b[bufnr].terminal_job_id
+    if not job then
+        return false
+    end
+
+    local pid = vim.fn.jobpid(job)
+    if type(pid) ~= "number" or pid <= 0 then
+        return false
+    end
+
+    -- foreground process group on that tty
+    local out = vim.fn.systemlist({ "ps", "-o", "tpgid=", "-p", tostring(pid) })
+    if vim.v.shell_error ~= 0 or not out[1] then
+        return false
+    end
+
+    local tpgid = tonumber((out[1] or ""):match("%-?%d+"))
+    if not tpgid or tpgid <= 0 then
+        return false
+    end
+
+    -- process group 전체에 SIGWINCH
+    return pcall(vim.uv.kill, -tpgid, "sigwinch")
+end
+
 require("lazy").setup({
     -- Core utilities
     { "nvim-lua/plenary.nvim", lazy = true },
@@ -307,7 +333,7 @@ require("lazy").setup({
                 [[t]],
                 function()
                     vim.cmd([[Trouble diagnostics close]])
-                    Snacks.terminal.toggle(nil, {
+                    local term = Snacks.terminal.toggle(nil, {
                         env = {
                             ["NO_THEME_SWITCHER"] = "1",
                         },
@@ -326,6 +352,10 @@ require("lazy").setup({
                             },
                         },
                     })
+                    vim.schedule(function()
+                        local bufnr = term and term.buf or vim.api.nvim_get_current_buf()
+                        sigwinch_to_tpgid(bufnr)
+                    end)
                 end,
                 desc = "Toggle terminal",
             },
@@ -371,7 +401,7 @@ require("lazy").setup({
                         vim.cmd([[noautocmd wincmd <]])
                         vim.defer_fn(function()
                             vim.cmd([[noautocmd wincmd >]])
-                        end, 250)
+                        end, 300)
                     end
                 end
             end, { desc = "Toggle opencode" })
