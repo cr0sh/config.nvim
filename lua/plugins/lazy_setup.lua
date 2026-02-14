@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- Core utilities
     { "nvim-lua/plenary.nvim", lazy = true },
-    { "timonv/vim-cargo" },
     { "tpope/vim-surround" },
     { "vim-scripts/ReplaceWithRegister" },
     { "numToStr/Comment.nvim" },
